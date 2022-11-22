@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <ul id="transportUlList"></ul>
+    <script>
+        const transport = [
+            {
+                "color": "purple",
+                "type": "minivan",
+                "registration": new Date('2017-01-03'),
+                "capacity": 7
+            },
+            {
+                "color": "red",
+                "type": "station wagon",
+                "registration": new Date('2018-03-03'),
+                "capacity": 43
+            },
+            {
+                "color": "yellow",
+                "type": "submarine",
+                "registration": new Date('2005-11-23'),
+                "capacity": 100
+            },
+            {
+                "color": "black",
+                "type": "mini cooper",
+                "registration": new Date('2022-05-17'),
+                "capacity": 2
+            },
+        ];
+        const transportUlList = document.querySelector('#transportUlList');
+        let li = null;
+        for (let i = 0; i < transport.length; i++) {
+            li = document.createElement('li');
+            li.innerText = `${transport[i].type}(${transport[i].color}), Reg. date: ${transport[i].registration.toLocaleDateString()}`;
+            transportUlList.appendChild(li);
+        }
+        let elems = document.querySelectorAll('#transportUlList li');
+        for (let i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('click', (event) => {
+                elems[i].style.backgroundColor = transport[i].color;
+            });
+        }
+    </script>
+
+</body>
+
+</html>
